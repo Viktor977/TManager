@@ -4,9 +4,32 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:TManager"
+        xmlns:vm="clr-namespace:TManager.ViewModel"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="MainWindow"
+        Height="500"
+        Width="500">
+    <Window.DataContext>
+        <vm:MainViewModel>
+        </vm:MainViewModel>
+    </Window.DataContext>
     <Grid>
-
+        <ListBox ItemsSource="{Binding Processes}"
+                 Background="Beige">
+            
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel Orientation="Horizontal">
+                    <TextBlock Text="{Binding Id}"
+                               Width="150"
+                               Background="Aqua"/>
+                    <TextBlock Text="{Binding ProcessName}">
+                        
+                    </TextBlock>
+                    </StackPanel>
+                    
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
     </Grid>
 </Window>
